@@ -30,10 +30,16 @@ namespace CrudTimesCS.view
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {   
+            if (textBox1.Text == "" || textBox2.Text == "")
+            {
+                MessageBox.Show("Digite todas as informações", "Atenção",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             times.NomeTimes = textBox1.Text;
             times.FrasesTimes = textBox2.Text;
-            times.LogoTimes = "c:/";
+            times.LogoTimes = "c:/"; // aqui vai existir alterações 
 
             ManipulaTimes manipulaTimes = new ManipulaTimes();
             manipulaTimes.cadastroTimes();
@@ -46,7 +52,27 @@ namespace CrudTimesCS.view
 
         public void fecharCadastro()
         {
-            this.ShowDialog();  
+            this.Close();  
+        }
+
+        public void limparTela()
+        {
+            foreach(Control ctl in this.Controls)
+            {
+                if(ctl is TextBox)
+                {
+                    ctl.Text = string.Empty;
+                }
+            }
+        }
+
+        private void TelaCadastrarTimes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 27)
+            {
+                fecharCadastro();
+            }
+            
         }
     }
 }

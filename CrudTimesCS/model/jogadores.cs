@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace CrudTimesCS.model
 {
-    class jogadores
+     public class jogadores
     {
         private static int codJogadores;
         private static string nomeJogadores;
         private static string emailJogadores;
         private static string foneJogadores;
+        private static string Retorno;
 
         public static int CodJogadores { get => codJogadores; set => codJogadores = value; }
         public static string NomeJogadores { get => nomeJogadores; set => nomeJogadores = value; }
         public static string EmailJogadores { get => emailJogadores; set => emailJogadores = value; }
         public static string FoneJogadores { get => foneJogadores; set => foneJogadores = value; }
+        public static string Retorno1 { get => Retorno; set => Retorno = value; }
     }
 }

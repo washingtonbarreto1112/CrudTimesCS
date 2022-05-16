@@ -117,6 +117,7 @@ namespace CrudTimesCS.view
             this.btnJogadores.TabIndex = 7;
             this.btnJogadores.Text = "Cadastrar";
             this.btnJogadores.UseVisualStyleBackColor = false;
+            this.btnJogadores.Click += new System.EventHandler(this.btnJogadores_Click);
             // 
             // TelaCadastrarJogadores
             // 

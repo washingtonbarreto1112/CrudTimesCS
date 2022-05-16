@@ -36,14 +36,14 @@ namespace CrudTimesCS.controller
 
                 if(resposta == DialogResult.Yes)
                 {
-                    times.retormo = "Sim";
+                    times.Retorno = "Sim";
                     return;
                    // TelaCadastrarTimes telaCadastrar = new TelaCadastrarTimes();
                     // telaCadastrar.abrirCadastro();
                 }
                 else 
                 {
-                    times.retormo = "Sim";
+                    times.Retorno = "Não";
                     return;
                 }
 
