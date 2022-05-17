@@ -35,9 +35,11 @@ namespace CrudTimesCS.view
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnbuscarlogo = new System.Windows.Forms.Button();
+            this.openFileDialogLogo = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -89,13 +91,13 @@ namespace CrudTimesCS.view
             this.textBox2.Size = new System.Drawing.Size(498, 23);
             this.textBox2.TabIndex = 4;
             // 
-            // pictureBox1
+            // pictureBoxLogo
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(86, 280);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(156, 94);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(86, 280);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(156, 94);
+            this.pictureBoxLogo.TabIndex = 5;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // button1
             // 
@@ -109,6 +111,21 @@ namespace CrudTimesCS.view
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnbuscarlogo
+            // 
+            this.btnbuscarlogo.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnbuscarlogo.Location = new System.Drawing.Point(86, 380);
+            this.btnbuscarlogo.Name = "btnbuscarlogo";
+            this.btnbuscarlogo.Size = new System.Drawing.Size(157, 23);
+            this.btnbuscarlogo.TabIndex = 7;
+            this.btnbuscarlogo.Text = "Buscar Imagem";
+            this.btnbuscarlogo.UseVisualStyleBackColor = false;
+            this.btnbuscarlogo.Click += new System.EventHandler(this.btnbuscarlogo_Click);
+            // 
+            // openFileDialogLogo
+            // 
+            this.openFileDialogLogo.FileName = "openFileDialogLogo";
+            // 
             // TelaCadastrarTimes
             // 
             this.AcceptButton = this.button1;
@@ -116,20 +133,22 @@ namespace CrudTimesCS.view
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(721, 450);
+            this.Controls.Add(this.btnbuscarlogo);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "TelaCadastrarTimes";
             this.Text = "Sistema de Gerenciamento de Jogos";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelaCadastrarTimes_KeyPress);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,7 +161,9 @@ namespace CrudTimesCS.view
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnbuscarlogo;
+        private System.Windows.Forms.OpenFileDialog openFileDialogLogo;
     }
 }

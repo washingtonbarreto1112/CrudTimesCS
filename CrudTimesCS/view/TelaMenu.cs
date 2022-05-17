@@ -33,5 +33,11 @@ namespace CrudTimesCS.view
         {
             this.Close();
         }
+
+        private void pesquisarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            TelaPesquisarTime telaPesquisarTime = new TelaPesquisarTime();
+            telaPesquisarTime.ShowDialog();
+        }
     }
 }
