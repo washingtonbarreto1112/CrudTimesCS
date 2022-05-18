@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using CrudTimesCS.model;
 using System.Windows.Forms;
 using CrudTimesCS.view;
+using System;
+using System.Collections.Generic;
 
 namespace CrudTimesCS.controller
 {
@@ -34,7 +36,7 @@ namespace CrudTimesCS.controller
                 if (resposta == DialogResult.Yes)
                 {
                     jogadores.Retorno1 = "Sim";
-                    return;              
+                    return;
                 }
                 else
                 {
@@ -46,6 +48,40 @@ namespace CrudTimesCS.controller
             catch
             {
 
+            }
+        }
+          public void pesquisarCodigoJogadores()
+        {
+            SqlConnection cn = new SqlConnection(ConexaoBD.Conectar());
+            SqlCommand cmd = new SqlCommand("pBuscarCodigoJogadores", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@CodJogadores", jogadores.CodJogadores);
+                cn.Open();
+
+                var arrayDados = cmd.ExecuteReader();
+
+                if (arrayDados.Read())
+                {
+                    jogadores.CodJogadores = Convert.ToInt32(arrayDados["CodJogadores"]);
+                    jogadores.NomeJogadores = arrayDados["NomeJogadores"].ToString();
+                    jogadores.EmailJogadores = arrayDados["EmailJogadores"].ToString();
+                    jogadores.FoneJogadores = arrayDados["FoneJogadores"].ToString();
+                    jogadores.Retorno1 = "Sim";
+
+                }
+                else
+                {
+                    MessageBox.Show("Código Não Localizado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    jogadores.Retorno1 = "Não";
+                }
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
