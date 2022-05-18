@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrudTimesCS.model;
 using CrudTimesCS.controller;
+using System.IO;
 
 namespace CrudTimesCS.view
 {
@@ -38,22 +39,27 @@ namespace CrudTimesCS.view
                     MessageBox.Show("Digite um código válido");
                 return;
                 }
-                times.CodTimes = Convert.ToInt32(textBox1.Text);
+                else
+                { 
+                    times.CodTimes = Convert.ToInt32(textBox1.Text);
+                }
+
 
                 ManipulaTimes manipula = new ManipulaTimes();
                 manipula.pesquisarCodigoTimes();
 
-                if(times.CodTimes == Convert.ToInt32(textBox1.Text))
-                {
+                              
                     textBox4.Text = times.CodTimes.ToString();
                     textBox2.Text = times.FrasesTimes;
                     textBox3.Text = times.NomeTimes;
-                    pictureBoxLogo.Image = Image.FromFile(times.LogoTimes.ToString());
-                }
+                    MemoryStream ms = new MemoryStream((byte[])times.LogoTimes);
+                    pictureBoxLogo.Image = Image.FromStream(ms);
+
+
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw;
+                
             }
         }
     }
