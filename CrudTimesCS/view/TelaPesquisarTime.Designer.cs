@@ -36,6 +36,7 @@ namespace CrudTimesCS.view
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDeletarTimes = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
@@ -109,6 +110,7 @@ namespace CrudTimesCS.view
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDeletarTimes);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.pictureBoxLogo);
@@ -123,6 +125,17 @@ namespace CrudTimesCS.view
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btnDeletarTimes
+            // 
+            this.btnDeletarTimes.BackColor = System.Drawing.Color.Red;
+            this.btnDeletarTimes.Location = new System.Drawing.Point(340, 189);
+            this.btnDeletarTimes.Name = "btnDeletarTimes";
+            this.btnDeletarTimes.Size = new System.Drawing.Size(88, 30);
+            this.btnDeletarTimes.TabIndex = 12;
+            this.btnDeletarTimes.Text = "Deletar";
+            this.btnDeletarTimes.UseVisualStyleBackColor = false;
+            this.btnDeletarTimes.Click += new System.EventHandler(this.btnDeletarTimes_Click);
             // 
             // textBox4
             // 
@@ -256,5 +269,6 @@ namespace CrudTimesCS.view
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnDeletarTimes;
     }
 }

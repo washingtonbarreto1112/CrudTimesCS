@@ -67,5 +67,10 @@ namespace CrudTimesCS.view
         {
 
         }
+
+        private void btnDeletarTimes_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

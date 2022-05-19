@@ -15,14 +15,14 @@ namespace CrudTimesCS.controller
     {
         public void cadastroTimes()
         {
-           SqlConnection cn = new SqlConnection(controller.ConexaoBD.Conectar());
+            SqlConnection cn = new SqlConnection(controller.ConexaoBD.Conectar());
             SqlCommand cmd = new SqlCommand("pInserirTimes", cn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             try
             {
-                cmd.Parameters.AddWithValue("@NomeTimes",times.NomeTimes);
-                cmd.Parameters.AddWithValue("@LogoTimes",times.LogoTimes);
+                cmd.Parameters.AddWithValue("@NomeTimes", times.NomeTimes);
+                cmd.Parameters.AddWithValue("@LogoTimes", times.LogoTimes);
                 cmd.Parameters.AddWithValue("@FraseTimes", times.FrasesTimes);
 
                 SqlParameter nv = cmd.Parameters.Add("@CodTimes", SqlDbType.Int);
@@ -32,23 +32,23 @@ namespace CrudTimesCS.controller
                 cmd.ExecuteNonQuery();
 
                 var resposta = MessageBox.Show("Cadastro Efetuado com Sucesso, Deseja executar um novo cadastro?",
-                    "Atenção",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
+                    "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
-                if(resposta == DialogResult.Yes)
+                if (resposta == DialogResult.Yes)
                 {
                     times.Retorno = "Sim";
                     return;
-                   // TelaCadastrarTimes telaCadastrar = new TelaCadastrarTimes();
+                    // TelaCadastrarTimes telaCadastrar = new TelaCadastrarTimes();
                     // telaCadastrar.abrirCadastro();
                 }
-                else 
+                else
                 {
                     times.Retorno = "Não";
                     return;
                 }
 
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -67,7 +67,7 @@ namespace CrudTimesCS.controller
 
                 var arrayDados = cmd.ExecuteReader();
 
-                if(arrayDados.Read())
+                if (arrayDados.Read())
                 {
                     times.CodTimes = Convert.ToInt32(arrayDados["CodTimes"]);
                     times.NomeTimes = arrayDados["NomeTimes"].ToString();
@@ -78,7 +78,7 @@ namespace CrudTimesCS.controller
                 }
                 else
                 {
-                    MessageBox.Show("Código Não Localizado","Atenção",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show("Código Não Localizado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     times.Retorno = "Não";
                 }
             }
@@ -86,6 +86,23 @@ namespace CrudTimesCS.controller
             {
 
                 MessageBox.Show(e.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void deletarTimes()
+        {
+            SqlConnection cn = new SqlConnection(ConexaoBD.Conectar());
+            SqlCommand cmd = new SqlCommand("pDeletarTimes", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
