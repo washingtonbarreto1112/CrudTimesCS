@@ -97,12 +97,54 @@ namespace CrudTimesCS.controller
 
             try
             {
-                
+                cmd.Parameters.AddWithValue("@CodTimes", times.CodTimes);
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Time excluído com sucesso",
+                "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("O Time não pode ser excluído", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (cn.State != ConnectionState.Closed)
+                {
+                    cn.Close();
+                }
+            }
+            
+        }
+        public void alterarTimes()
+        {
+            SqlConnection cn = new SqlConnection(ConexaoBD.Conectar());
+            SqlCommand cmd = new SqlCommand("pAlterarTimes", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.AddWithValue("@CodTimes", times.CodTimes);
+                cmd.Parameters.AddWithValue("@NomeTimes", times.NomeTimes);
+                cmd.Parameters.AddWithValue("@FraseTimes", times.FrasesTimes);
+                cmd.Parameters.AddWithValue("@LogoTimes", times.LogoTimes);
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Time Alterado com Sucesso", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
             }
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("O Time não foi Alterado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (cn.State != ConnectionState.Closed)
+                {
+                    cn.Close();
+                }
             }
         }
     }

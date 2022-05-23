@@ -36,6 +36,7 @@ namespace CrudTimesCS.view
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnalterartime = new System.Windows.Forms.Button();
             this.btnDeletarTimes = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,6 +48,8 @@ namespace CrudTimesCS.view
             this.btnbuscar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnalterarimagem = new System.Windows.Forms.Button();
+            this.openFileDialogLogo = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -110,6 +113,8 @@ namespace CrudTimesCS.view
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnalterarimagem);
+            this.groupBox1.Controls.Add(this.btnalterartime);
             this.groupBox1.Controls.Add(this.btnDeletarTimes);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label4);
@@ -126,12 +131,23 @@ namespace CrudTimesCS.view
             this.groupBox1.Text = "Informações";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // btnalterartime
+            // 
+            this.btnalterartime.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnalterartime.Location = new System.Drawing.Point(423, 189);
+            this.btnalterartime.Name = "btnalterartime";
+            this.btnalterartime.Size = new System.Drawing.Size(86, 30);
+            this.btnalterartime.TabIndex = 13;
+            this.btnalterartime.Text = "Salvar";
+            this.btnalterartime.UseVisualStyleBackColor = false;
+            this.btnalterartime.Click += new System.EventHandler(this.btnalterartime_Click);
+            // 
             // btnDeletarTimes
             // 
             this.btnDeletarTimes.BackColor = System.Drawing.Color.Red;
             this.btnDeletarTimes.Location = new System.Drawing.Point(340, 189);
             this.btnDeletarTimes.Name = "btnDeletarTimes";
-            this.btnDeletarTimes.Size = new System.Drawing.Size(88, 30);
+            this.btnDeletarTimes.Size = new System.Drawing.Size(77, 30);
             this.btnDeletarTimes.TabIndex = 12;
             this.btnDeletarTimes.Text = "Deletar";
             this.btnDeletarTimes.UseVisualStyleBackColor = false;
@@ -227,6 +243,21 @@ namespace CrudTimesCS.view
             this.label1.TabIndex = 0;
             this.label1.Text = "Digite o código do time:";
             // 
+            // btnalterarimagem
+            // 
+            this.btnalterarimagem.BackColor = System.Drawing.Color.Yellow;
+            this.btnalterarimagem.Location = new System.Drawing.Point(340, 159);
+            this.btnalterarimagem.Name = "btnalterarimagem";
+            this.btnalterarimagem.Size = new System.Drawing.Size(167, 23);
+            this.btnalterarimagem.TabIndex = 14;
+            this.btnalterarimagem.Text = "Alterar Imagem";
+            this.btnalterarimagem.UseVisualStyleBackColor = false;
+            this.btnalterarimagem.Click += new System.EventHandler(this.btnalterarimagem_Click);
+            // 
+            // openFileDialogLogo
+            // 
+            this.openFileDialogLogo.FileName = "openFileDialog";
+            // 
             // TelaPesquisarTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -270,5 +301,8 @@ namespace CrudTimesCS.view
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnDeletarTimes;
+        private System.Windows.Forms.Button btnalterartime;
+        private System.Windows.Forms.Button btnalterarimagem;
+        private System.Windows.Forms.OpenFileDialog openFileDialogLogo;
     }
 }
