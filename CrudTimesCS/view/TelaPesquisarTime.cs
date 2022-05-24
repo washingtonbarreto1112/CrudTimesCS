@@ -85,7 +85,7 @@ namespace CrudTimesCS.view
                 times.CodTimes = Convert.ToInt32(textBox1.Text);
 
                 ManipulaTimes manipulaTimes = new ManipulaTimes();
-                manipulaTimes.deletarTimes();
+                manipulaTimes.deletarJogadores();
             }
           
                 textBox4.Text = string.Empty;

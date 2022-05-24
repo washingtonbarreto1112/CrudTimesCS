@@ -89,7 +89,7 @@ namespace CrudTimesCS.controller
             }
         }
 
-        public void deletarTimes()
+        public void deletarJogadores()
         {
             SqlConnection cn = new SqlConnection(ConexaoBD.Conectar());
             SqlCommand cmd = new SqlCommand("pDeletarTimes", cn);

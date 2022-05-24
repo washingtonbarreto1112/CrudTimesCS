@@ -49,5 +49,60 @@ namespace CrudTimesCS.view
                 
             }
         }
+
+        private void btnDeletarJogador_Click(object sender, EventArgs e)
+        {
+
+
+            if (tbxcodigojogador.Text == "")
+            {
+                MessageBox.Show("Digite um código válido!");
+            }
+
+            var resposta = MessageBox.Show("Deseja excluir o jogador " + tbxcodigojogador.Text + " ?",
+                "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+
+            if (resposta == DialogResult.Yes)
+            {
+                jogadores.CodJogadores = Convert.ToInt32(tbxcodigojogador.Text);
+
+                ManipulaJogadores manipulaJogadores = new ManipulaJogadores();
+                manipulaJogadores.deletarJogadores();
+            }
+
+            tbxnomejogador.Text = string.Empty;
+            tbxemailjogador.Text = string.Empty;
+            tbxfonejogador.Text = string.Empty;
+                  
+        }
+
+        private void btnSalvarAltJogador_Click(object sender, EventArgs e)
+        {
+            if (tbxnomejogador.Text == "")
+            {
+                MessageBox.Show("Digite um Código Válido", "Atenção",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                tbxnomejogador.Text = string.Empty;
+                tbxemailjogador.Text = string.Empty;
+                tbxfonejogador.Text = string.Empty;
+                return;
+
+            }
+
+            var resposta = MessageBox.Show("Deseja salvar as alterações nos dados do jogador de código " + tbxcodigojogador.Text + " ?",
+                "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resposta == DialogResult.Yes)
+            {
+                jogadores.NomeJogadores = tbxnomejogador.Text;
+                jogadores.EmailJogadores = tbxemailjogador.Text;
+                jogadores.FoneJogadores = tbxfonejogador.Text;
+
+                ManipulaJogadores manipulaJogadores = new ManipulaJogadores();
+                manipulaJogadores.alterarJogadores();
+
+            }
+        }
     }
 }

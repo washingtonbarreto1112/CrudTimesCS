@@ -50,7 +50,7 @@ namespace CrudTimesCS.controller
 
             }
         }
-          public void pesquisarCodigoJogadores()
+        public void pesquisarCodigoJogadores()
         {
             SqlConnection cn = new SqlConnection(ConexaoBD.Conectar());
             SqlCommand cmd = new SqlCommand("pBuscarCodigoJogadores", cn);
@@ -82,6 +82,64 @@ namespace CrudTimesCS.controller
             {
 
                 MessageBox.Show(e.Message, "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void deletarJogadores()
+        {
+            SqlConnection cn = new SqlConnection(ConexaoBD.Conectar());
+            SqlCommand cmd = new SqlCommand("pDeletarJogadores", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.Parameters.AddWithValue("@CodJogadores", jogadores.CodJogadores);
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Jogador excluído com sucesso",
+                "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("O Jogador não pode ser excluído", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (cn.State != ConnectionState.Closed)
+                {
+                    cn.Close();
+                }
+            }
+        }
+        public void alterarJogadores()
+        {
+            SqlConnection cn = new SqlConnection(ConexaoBD.Conectar());
+            SqlCommand cmd = new SqlCommand("pAlterarJogadores", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.Parameters.AddWithValue("@CodJogadores", jogadores.CodJogadores);
+                cmd.Parameters.AddWithValue("@NomeJogadores", jogadores.NomeJogadores);
+                cmd.Parameters.AddWithValue("@EmailJogadores", jogadores.EmailJogadores);
+                cmd.Parameters.AddWithValue("@FoneJogadores", jogadores.FoneJogadores);
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Dados do jogador Alterado com Sucesso", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("O os dados do jogador não foi Alterado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (cn.State != ConnectionState.Closed)
+                {
+                    cn.Close();
+                }
+
             }
         }
     }
